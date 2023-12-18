@@ -1,8 +1,8 @@
 === Easy SVG Upload ===
 Contributors: wpdelower
-Tags: svg upload, mime type, svg, file type
-Requires at least: 5.0
-Tested up to: 6.3
+Tags: svg upload, mime type, svg, file type, easy svg upload, svg image
+Requires at least: 5.7
+Tested up to: 6.4.2
 Requires PHP: 7.2
 Stable tag: 1.0
 License: GPLv2 or later

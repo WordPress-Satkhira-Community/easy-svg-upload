@@ -3,13 +3,13 @@ Contributors: wpdelower
 Tags: svg upload, mime type, svg, file type, easy svg upload, svg image
 Requires at least: 5.7
 Tested up to: 6.4.2
-Requires PHP: 7.2
+Requires PHP: 7.4
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate Link: https://www.wpsatkhira.com
 
-The easiest way to upload svg file in your WordPress Site.
+The easiest way to upload svg image file in your WordPress Site.
 
 == Description ==
 

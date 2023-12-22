@@ -5,7 +5,7 @@
  * Description: Safely enable SVG uploads in WordPress with this powerful plugin. It allows you to seamlessly incorporate SVG files into your website while ensuring they are sanitized to prevent potential vulnerabilities. Additionally, it provides a convenient way to preview uploaded SVGs in the media library. Embrace the creative potential of SVG files within your secure and user-friendly WordPress site.
  * Version: 1.0
  * Requires at least: 5.7
- * Requires PHP: 7.2
+ * Requires PHP: 7.4
  * Author: WordPress Satkhira Community
  * Author URI: https://www.wpsatkhira.com
  * License: GPL v2 or later

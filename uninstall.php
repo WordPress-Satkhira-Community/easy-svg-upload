@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @link       https://wpsatkhira.org
- * @since      1.0.0
+ * @link       https://wpsatkhira.com
+ * @since      1.0
  *
  * @package    Easy_SVG_Uploads
  */

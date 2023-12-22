@@ -1,49 +1,36 @@
 <?php
 /**
- * @package           Easy_SVG_Upload
- * @version           1.0
- * @author            WordPress Satkhira Community
- * @copyright         2023 WordPress Satkhira Community
- * @license           GPL-2.0-or-later
- */
-
- /*
- * Plugin Name:       Easy SVG Upload
- * Plugin URI:        https://www.wpsatkhira.com/plugins/easy-svg-upload
- * Description:       Easy SVG Upload is your go-to solution for safely enabling SVG uploads in WordPress. This powerful plugin empowers you to seamlessly incorporate SVG files into your website, all while ensuring they are meticulously sanitized to thwart any potential SVG/XML vulnerabilities that could compromise your site's security. Additionally, Easy SVG Upload offers the convenience of previewing your uploaded SVGs directly in the media library, across all views. With Easy SVG Upload, you can confidently embrace the creative potential of SVG files within your WordPress site, all within a secure and user-friendly environment.
- * Version:           1.0
+ * Plugin Name: Easy SVG Upload
+ * Plugin URI: https://www.wpsatkhira.com/plugins/easy-svg-upload
+ * Description: Safely enable SVG uploads in WordPress with this powerful plugin. It allows you to seamlessly incorporate SVG files into your website while ensuring they are sanitized to prevent potential vulnerabilities. Additionally, it provides a convenient way to preview uploaded SVGs in the media library. Embrace the creative potential of SVG files within your secure and user-friendly WordPress site.
+ * Version: 1.0
  * Requires at least: 5.7
- * Requires PHP:      7.2
- * Author:            WordPress Satkhira Community
- * Author URI:        https://www.wpsatkhira.com
- * License:           GPL v2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       easy-svg-upload
- * Domain Path:       /languages
+ * Requires PHP: 7.2
+ * Author: WordPress Satkhira Community
+ * Author URI: https://www.wpsatkhira.com
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: easy-svg-upload
+ * Domain Path: /languages
  */
 
-
-//Avoiding Direct File Access
-
- if ( ! defined( 'ABSPATH' ) ) {
-	die; // Exit if accessed directly
+if (!defined('ABSPATH')) {
+    die; // Exit if accessed directly
 }
- 
+
 /**
  * Load plugin textdomain.
  */
 function esu_load_textdomain() {
-  load_plugin_textdomain( 'easy-svg-upload', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+    load_plugin_textdomain('easy-svg-upload', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
-add_action( 'plugins_loaded', 'esu_load_textdomain' );
-
+add_action('plugins_loaded', 'esu_load_textdomain');
 
 // Register the options page
-
 function esu_easy_svg_upload_options_page() {
     add_options_page(
         __('Easy SVG Upload Settings', 'easy-svg-upload'),
-        __('Easy SVG Upload','easy-svg-upload'),
+        __('Easy SVG Upload', 'easy-svg-upload'),
         'manage_options',
         'easy-svg-upload',
         'esu_easy_svg_upload_options_page_content'
@@ -53,7 +40,7 @@ add_action('admin_menu', 'esu_easy_svg_upload_options_page');
 
 // Initialize plugin options
 function esu_easy_svg_upload_initialize_options() {
-    // Add an option to enable or disable the Easy SVG Upload
+    // Add an option to enable or disable Easy SVG Upload
     add_option('esu_enable_easy_svg_upload', 'off');
 }
 add_action('admin_init', 'esu_easy_svg_upload_initialize_options');
@@ -62,17 +49,17 @@ add_action('admin_init', 'esu_easy_svg_upload_initialize_options');
 function esu_easy_svg_upload_options_page_content() {
     ?>
     <div class="wrap">
-        <h2>Easy SVG Upload Settings</h2>
+        <h2><?php _e('Easy SVG Upload Settings', 'easy-svg-upload'); ?></h2>
         <form method="post" action="options.php">
             <?php settings_fields('esu_easy_svg_upload_settings'); ?>
             <?php do_settings_sections('esu-easy-svg-upload-settings'); ?>
             <table class="form-table">
                 <tr>
-                    <th scope="row">Enable Easy SVG Upload</th>
+                    <th scope="row"><?php _e('Enable Easy SVG Upload', 'easy-svg-upload'); ?></th>
                     <td>
                         <label for="esu_enable_easy_svg_upload">
                             <input type="checkbox" name="esu_enable_easy_svg_upload" id="esu_enable_easy_svg_upload" value="on" <?php checked('on', get_option('esu_enable_easy_svg_upload')); ?>>
-                            Enable
+                            <?php _e('Enable', 'easy-svg-upload'); ?>
                         </label>
                     </td>
                 </tr>
@@ -98,24 +85,20 @@ function esu_easy_svg_upload_type($mimes) {
 }
 add_filter('upload_mimes', 'esu_easy_svg_upload_type');
 
-
-//Easy SVG Upload Plugin Option Links
-
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links' );
-
-function add_action_links ( $actions ) {
+// Easy SVG Upload Plugin Option Links
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links');
+function add_action_links($actions) {
    $mylinks = array(
-      '<a href="' . admin_url( 'options-general.php?page=easy-svg-upload' ) . '">Settings</a>',
+      '<a href="' . admin_url('options-general.php?page=easy-svg-upload') . '">' . __('Settings', 'easy-svg-upload') . '</a>',
    );
-   $actions = array_merge( $actions, $mylinks );
+   $actions = array_merge($actions, $mylinks);
    return $actions;
 }
 
 // Redirect to settings page once the plugin is activated
-
-function esu_activation_redirect( $plugin ) {
-    if( $plugin == plugin_basename( __FILE__ ) ) {
-        exit( wp_redirect( admin_url( 'options-general.php?page=easy-svg-upload' ) ) );
+function esu_activation_redirect($plugin) {
+    if ($plugin == plugin_basename(__FILE__)) {
+        exit(wp_redirect(admin_url('options-general.php?page=easy-svg-upload')));
     }
 }
-add_action( 'activated_plugin', 'esu_activation_redirect' );
+add_action('activated_plugin', 'esu_activation_redirect');

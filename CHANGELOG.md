@@ -1,2 +1,2 @@
 # Changelog
-* (22 December, 2023). Initial Release.
+* (22 January, 2024). Initial Release.

@@ -7,7 +7,7 @@ Requires PHP: 7.4
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Donate Link: https://www.wpsatkhira.com
+Donate Link: https://www.delowerhossain.com/donate
 
 The easiest way to upload svg image file in your WordPress Site.
 
@@ -49,7 +49,7 @@ Yes! It's compatible with both single sites and multisite.
 
 == Screenshots ==
 
-1. A general settings item on multisite when activated network-wide to allow site owners can control the commenting.
+1. A general settings
 
 == Upgrade Notice ==
 

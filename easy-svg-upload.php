@@ -21,45 +21,45 @@ if (!defined('ABSPATH')) {
 /**
  * Load plugin textdomain.
  */
-function esu_load_textdomain() {
+function esup_load_textdomain() {
     load_plugin_textdomain('easy-svg-upload', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
-add_action('plugins_loaded', 'esu_load_textdomain');
+add_action('plugins_loaded', 'esup_load_textdomain');
 
 // Register the options page
-function esu_easy_svg_upload_options_page() {
+function esup_easy_svg_upload_options_page() {
     add_options_page(
         __('Easy SVG Upload Settings', 'easy-svg-upload'),
         __('Easy SVG Upload', 'easy-svg-upload'),
         'manage_options',
         'easy-svg-upload',
-        'esu_easy_svg_upload_options_page_content'
+        'esup_easy_svg_upload_options_page_content'
     );
 }
-add_action('admin_menu', 'esu_easy_svg_upload_options_page');
+add_action('admin_menu', 'esup_easy_svg_upload_options_page');
 
 // Initialize plugin options
-function esu_easy_svg_upload_initialize_options() {
+function esup_easy_svg_upload_initialize_options() {
     // Add an option to enable or disable Easy SVG Upload
-    add_option('esu_enable_easy_svg_upload', 'off');
+    add_option('esup_enable_easy_svg_upload', 'off');
 }
-add_action('admin_init', 'esu_easy_svg_upload_initialize_options');
+add_action('admin_init', 'esup_easy_svg_upload_initialize_options');
 
 // Options page content
-function esu_easy_svg_upload_options_page_content() {
+function esup_easy_svg_upload_options_page_content() {
     ?>
     <div class="wrap">
-        <h2><?php _e('Easy SVG Upload Settings', 'easy-svg-upload'); ?></h2>
+        <h2><?php esc_html_e('Easy SVG Upload Settings', 'easy-svg-upload'); ?></h2>
         <form method="post" action="options.php">
-            <?php settings_fields('esu_easy_svg_upload_settings'); ?>
+            <?php settings_fields('esup_easy_svg_upload_settings'); ?>
             <?php do_settings_sections('esu-easy-svg-upload-settings'); ?>
             <table class="form-table">
                 <tr>
-                    <th scope="row"><?php _e('Enable Easy SVG Upload', 'easy-svg-upload'); ?></th>
+                    <th scope="row"><?php esc_html_e('Enable Easy SVG Upload', 'easy-svg-upload'); ?></th>
                     <td>
-                        <label for="esu_enable_easy_svg_upload">
-                            <input type="checkbox" name="esu_enable_easy_svg_upload" id="esu_enable_easy_svg_upload" value="on" <?php checked('on', get_option('esu_enable_easy_svg_upload')); ?>>
-                            <?php _e('Enable', 'easy-svg-upload'); ?>
+                        <label for="esup_enable_easy_svg_upload">
+                            <input type="checkbox" name="esup_enable_easy_svg_upload" id="esup_enable_easy_svg_upload" value="on" <?php checked('on', get_option('esup_enable_easy_svg_upload')); ?>>
+                            <?php esc_html_e('Enable', 'easy-svg-upload'); ?>
                         </label>
                     </td>
                 </tr>
@@ -71,19 +71,19 @@ function esu_easy_svg_upload_options_page_content() {
 }
 
 // Register plugin settings
-function esu_easy_svg_upload_register_settings() {
-    register_setting('esu_easy_svg_upload_settings', 'esu_enable_easy_svg_upload');
+function esup_easy_svg_upload_register_settings() {
+    register_setting('esup_easy_svg_upload_settings', 'esup_enable_easy_svg_upload');
 }
-add_action('admin_init', 'esu_easy_svg_upload_register_settings');
+add_action('admin_init', 'esup_easy_svg_upload_register_settings');
 
 // Filter the allowed Easy SVG Upload based on the option value
-function esu_easy_svg_upload_type($mimes) {
-    if (get_option('esu_enable_easy_svg_upload') === 'on') {
+function esup_easy_svg_upload_type($mimes) {
+    if (get_option('esup_enable_easy_svg_upload') === 'on') {
         $mimes['svg'] = 'image/svg+xml';
     }
     return $mimes;
 }
-add_filter('upload_mimes', 'esu_easy_svg_upload_type');
+add_filter('upload_mimes', 'esup_easy_svg_upload_type');
 
 // Easy SVG Upload Plugin Option Links
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links');
@@ -96,9 +96,9 @@ function add_action_links($actions) {
 }
 
 // Redirect to settings page once the plugin is activated
-function esu_activation_redirect($plugin) {
+function esup_activation_redirect($plugin) {
     if ($plugin == plugin_basename(__FILE__)) {
         exit(wp_redirect(admin_url('options-general.php?page=easy-svg-upload')));
     }
 }
-add_action('activated_plugin', 'esu_activation_redirect');
+add_action('activated_plugin', 'esup_activation_redirect');

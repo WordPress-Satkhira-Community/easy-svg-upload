@@ -86,8 +86,8 @@ function esup_easy_svg_upload_type($mimes) {
 add_filter('upload_mimes', 'esup_easy_svg_upload_type');
 
 // Easy SVG Upload Plugin Option Links
-add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links');
-function add_action_links($actions) {
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'esup_action_links');
+function esup_action_links($actions) {
    $mylinks = array(
       '<a href="' . admin_url('options-general.php?page=easy-svg-upload') . '">' . __('Settings', 'easy-svg-upload') . '</a>',
    );

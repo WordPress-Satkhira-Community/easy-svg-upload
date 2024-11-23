@@ -1,10 +1,10 @@
 === Easy SVG Upload ===
 Contributors: wpdelower,monarchwp23
-Tags: svg upload, mime type, svg, file type, easy svg upload, svg image
+Tags: svg upload, mime type, svg, file type, easy svg upload
 Requires at least: 5.7
-Tested up to: 6.4.3
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate Link: https://www.delowerhossain.com/donate
@@ -53,10 +53,22 @@ Yes! It's compatible with both single sites and multisite.
 
 == Upgrade Notice ==
 
+= 1.1.0 (November 23,2024) =
+* Bug fix
+* Performance Update
+* 6.7 Compatibility
+* Security Update
+
 = 1.0 (March 22,2024) =
 * Initial release
 
 == Changelog ==
+
+= 1.1.0 (November 23,2024) =
+* Bug fix
+* Performance Update
+* 6.7 Compatibility
+* Security Update
 
 = 1.0 (March 22,2024) =
 * Initial release

@@ -1,2 +1,9 @@
 # Changelog
-* (22 January, 2024). Initial Release.
+= 1.1.0 (November 23,2024) =
+* Bug fix
+* Performance Update
+* 6.7 Compatibility
+* Security Update
+
+= 1.0 (March 22,2024) =
+* Initial release

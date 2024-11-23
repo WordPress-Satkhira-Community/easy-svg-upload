@@ -3,7 +3,7 @@
  * Plugin Name: Easy SVG Upload
  * Plugin URI: https://wordpress.org/plugins/easy-svg-upload
  * Description: Safely enable SVG uploads in WordPress with this powerful plugin. It allows you to seamlessly incorporate SVG files into your website while ensuring they are sanitized to prevent potential vulnerabilities. Additionally, it provides a convenient way to preview uploaded SVGs in the media library. Embrace the creative potential of SVG files within your secure and user-friendly WordPress site.
- * Version: 1.0
+ * Version: 1.1
  * Requires at least: 5.7
  * Requires PHP: 7.4
  * Author: Delower Hossain
@@ -98,7 +98,8 @@ function esup_action_links($actions) {
 // Redirect to settings page once the plugin is activated
 function esup_activation_redirect($plugin) {
     if ($plugin == plugin_basename(__FILE__)) {
-        exit(wp_redirect(admin_url('options-general.php?page=easy-svg-upload')));
+        wp_redirect(esc_url(admin_url('options-general.php?page=easy-svg-upload')));
+        exit();
     }
 }
 add_action('activated_plugin', 'esup_activation_redirect');

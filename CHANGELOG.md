@@ -1,5 +1,5 @@
 # Changelog
-= 1.1.0 (November 23,2024) =
+= 1.1 (November 23,2024) =
 * Bug fix
 * Performance Update
 * 6.7 Compatibility

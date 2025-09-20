@@ -3,9 +3,9 @@
  * Plugin Name: Easy SVG Upload
  * Plugin URI: https://wordpress.org/plugins/easy-svg-upload
  * Description: Safely enable SVG uploads by sanitizing files on upload. Optionally allow Authors+, with size limits and hardening.
- * Version: 1.2.2
- * Requires at least: 5.7
- * Requires PHP: 7.4
+ * Version: 1.2
+ * Requires at least: 6.0
+ * Requires PHP: 8.0
  * Author: Delower Hossain
  * Author URI: https://www.delowerhossain.com
  * License: GPL v2 or later

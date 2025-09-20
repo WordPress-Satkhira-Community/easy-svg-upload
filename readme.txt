@@ -64,6 +64,11 @@ Yes! It's compatible with both single sites and multisite.
 
 == Changelog ==
 
+= 1.2 (September 20,2025) =
+* Bug fix
+* New Interface
+* Sanitizer Added
+
 = 1.1 (November 23,2024) =
 * Bug fix
 * Performance Update
